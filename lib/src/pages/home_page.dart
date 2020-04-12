@@ -39,11 +39,13 @@ Widget  _list() {
              leading: getIcon(opt['icon']),
              trailing: Icon(Icons.keyboard_arrow_right),
              onTap: (){
-               
-                 final route = MaterialPageRoute(
+
+               Navigator.pushNamed(context, opt['ruta']);
+
+               /*  final route = MaterialPageRoute(
                    builder:(context) => AlertPage()
                  );
-                 Navigator.push(context, route);
+                 Navigator.push(context, route);*/
              },
            );
            options..add(tempWidget)

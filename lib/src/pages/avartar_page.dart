@@ -10,7 +10,7 @@ class AvatarPage extends StatelessWidget {
            floatingActionButton: FloatingActionButton(
              child: Icon(Icons.keyboard_arrow_left),
              onPressed:(){
-               
+               Navigator.pop(context);
              } ,
            ),
       );
