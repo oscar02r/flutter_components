@@ -20,7 +20,7 @@ class HomePageTemp extends StatelessWidget {
         );
   }
 
-  List<Widget> _createItems() {
+ /* List<Widget> _createItems() {
     final List<Widget> list = new List<Widget>();
 
     for (String opt in options) {
@@ -34,7 +34,7 @@ class HomePageTemp extends StatelessWidget {
     }
     return list;
   }
-
+*/
   List<Widget> _createItemsShort(){
      return options.map((opt){
           return Column(
