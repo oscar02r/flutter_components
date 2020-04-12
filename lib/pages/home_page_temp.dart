@@ -16,7 +16,7 @@ class HomePageTemp extends StatelessWidget {
           title: Text('Home Temp')
         ),
         body: ListView(
-          children: _createItems())
+          children: _createItemsShort())
         );
   }
 
@@ -34,4 +34,22 @@ class HomePageTemp extends StatelessWidget {
     }
     return list;
   }
+
+  List<Widget> _createItemsShort(){
+     return options.map((opt){
+          return Column(
+            children: <Widget>[
+              ListTile(
+                title: Text(opt + '!'),
+                leading: Icon(Icons.account_balance),
+                subtitle: Text('Welcome to lisView'),
+                trailing:Icon(Icons.keyboard_arrow_right),
+                onTap: (){},
+              ),
+              Divider(color: Colors.deepOrange)
+            ],
+          ); 
+     }).toList();
+  }
+
 }
