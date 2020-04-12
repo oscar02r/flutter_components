@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:component_flutter/pages/home_page_temp.dart';
+
+import 'package:component_flutter/src/pages/home_page.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -10,7 +12,7 @@ class MyApp  extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
            debugShowCheckedModeBanner: false,
-           home: HomePageTemp()
+           home: HomePage()
       );
   }
 }
