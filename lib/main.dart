@@ -1,9 +1,9 @@
-import 'package:component_flutter/src/pages/alert_page.dart';
-import 'package:component_flutter/src/pages/avartar_page.dart';
-import 'package:component_flutter/src/routes/routes.dart';
 import 'package:flutter/material.dart';
 
-import 'package:component_flutter/src/pages/home_page.dart';
+import 'package:component_flutter/src/pages/alert_page.dart';
+import 'package:component_flutter/src/routes/routes.dart';
+
+
 
 
 void main() => runApp(MyApp());
