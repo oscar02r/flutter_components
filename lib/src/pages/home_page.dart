@@ -1,7 +1,7 @@
-import 'package:component_flutter/src/pages/alert_page.dart';
+import 'package:flutter/material.dart';
+
 import 'package:component_flutter/src/providers/menu_provider.dart';
 import 'package:component_flutter/src/utils/icon_string_util.dart';
-import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,7 +31,7 @@ Widget  _list() {
  List <Widget> _itemsList (List<dynamic> data, BuildContext context) {
        
         final List<Widget> options =[];
-
+           
            data.forEach((opt){
 
            final tempWidget = ListTile(
