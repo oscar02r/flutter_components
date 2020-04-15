@@ -10,6 +10,10 @@ class _InputPageState extends State<InputPage> {
   String _name ='';
   String _email ='';
   String _date ='';
+  String _selectOption ='Fly';
+
+  List <String> _powers = ['Fly', 'Rayos X', 'Super aliento', 'Super fuerza' ]; 
+
   TextEditingController _controllerDate = new TextEditingController();
 
   @override
@@ -28,14 +32,15 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _createDate(context),
           Divider(),
+           _createDropdown(),
+          Divider(),
           _createPerson()
         ],
       ),
-      
     );
   }
 
-  Widget _inputCreate() {
+ Widget _inputCreate() {
 
     return TextField(
       textCapitalization: TextCapitalization.sentences,
@@ -55,7 +60,7 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
-Widget  _createEmail() {
+ Widget _createEmail() {
        return TextField(
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
@@ -74,7 +79,7 @@ Widget  _createEmail() {
     );
 }
 
-  _createPassword() {
+ Widget _createPassword() {
       return TextField(
         obscureText: true,
       keyboardType: TextInputType.visiblePassword,
@@ -94,7 +99,7 @@ Widget  _createEmail() {
     );
   }
 
-    Widget _createDate(BuildContext context) {
+ Widget _createDate(BuildContext context) {
 
          return TextField(
            controller: _controllerDate,
@@ -117,12 +122,13 @@ Widget  _createEmail() {
     );
     }
 
-   _selectDate(BuildContext  context) async {
+ _selectDate(BuildContext  context) async {
         DateTime picked = await showDatePicker(
           context: context,
           initialDate : DateTime.now(), 
           firstDate   : DateTime(2018),
-          lastDate    : DateTime(2025)
+          lastDate    : DateTime(2025),
+          locale      : Locale('es', 'ES')
       );
       if (picked!=null){
             _date = picked.toString().substring(0,10);
@@ -131,13 +137,44 @@ Widget  _createEmail() {
   }
 
 
-   Widget _createPerson(){
+ Widget _createPerson(){
         return ListTile(
            title: Text('The name is $_name'),
+           trailing: Text(_selectOption),
         );
   }
 
-
-
+List<DropdownMenuItem<String>> getOptionsDropdown(){
+     List<DropdownMenuItem<String>> _list = new List();
+     _powers.forEach((power){
+           _list.add(
+             DropdownMenuItem(
+               child: Text(power),
+               value: power,
+             )
+           );
+     });
+   return _list;
 }
 
+ Widget _createDropdown() {
+        return Row(
+          children: <Widget>[
+            Icon(Icons.select_all),
+            SizedBox(width: 30.0,),
+            Expanded(
+                          child: DropdownButton(
+                     items:getOptionsDropdown(),
+                     value: _selectOption,
+                    isExpanded: true,
+                     onChanged: (opt){
+                         setState(() {
+                           _selectOption= opt;
+                         });
+                     },
+              ),
+            ),
+          ],
+        );
+}
+}
