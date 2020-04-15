@@ -1,3 +1,4 @@
+import 'package:component_flutter/src/pages/animated_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:component_flutter/src/pages/home_page.dart';
@@ -10,6 +11,7 @@ Map <String , WidgetBuilder> getAplicationRotues(){
                 '/'      : (context) => HomePage(),
                 'alert'  : (context) => AlertPage(),
                 'avatar' : (context) => AvatarPage(),
-                'card'   : (context) => CardPage()
+                'card'   : (context) => CardPage(),
+                'animated_container' : (context) => AnimatedPage(),
         };
 }
