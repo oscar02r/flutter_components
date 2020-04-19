@@ -7,7 +7,7 @@ import 'package:component_flutter/src/pages/card_page.dart';
 import 'package:component_flutter/src/pages/animated_page.dart';
 import 'package:component_flutter/src/pages/input_page.dart';
 import 'package:component_flutter/src/pages/slider_page.dart';
-import 'package:component_flutter/src/pages/listview_paga.dart';
+import 'package:component_flutter/src/pages/listview_page.dart';
 
 Map <String , WidgetBuilder> getAplicationRotues(){
         return  <String , WidgetBuilder> {
