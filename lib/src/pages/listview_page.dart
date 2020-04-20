@@ -52,19 +52,34 @@ import 'dart:async';
    }
 
  Widget _createList() {
-         return ListView.builder(
-           controller: _scrollController,
-           itemCount: _numberList.length ,
-           itemBuilder: (BuildContext context, int index){
-              final _list = _numberList[index];
-              return  FadeInImage(
-                fit: BoxFit.contain,
-                placeholder: AssetImage('assets/jar_loading.gif'), 
-                image: NetworkImage('https://picsum.photos/id/$_list/500/300')
-                );
+         return RefreshIndicator(
+           onRefresh: _getPageOne ,
+                    child: ListView.builder(
+             controller: _scrollController,
+             itemCount: _numberList.length ,
+             itemBuilder: (BuildContext context, int index){
+                final _list = _numberList[index];
+                return  FadeInImage(
+                  fit: BoxFit.contain,
+                  placeholder: AssetImage('assets/jar_loading.gif'), 
+                  image: NetworkImage('https://picsum.photos/id/$_list/500/300')
+                  );
 
-           }
-           );
+             }
+             ),
+         );
+  }
+
+  Future<Null> _getPageOne() async{
+          final duration = Duration(seconds: 2);
+
+          new Timer(duration,() {
+            _numberList.clear();
+            _ultimoItem++;
+            _agregarImage10();
+          });
+          
+          return Future.delayed(duration);
   }
 
  void _agregarImage10(){
